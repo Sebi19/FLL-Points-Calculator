@@ -1,31 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const radios = document.querySelectorAll("input[type='radio']");
-    const pointsDisplay = document.querySelector(".points");
-    const banner = document.querySelector(".banner");
+    const containers = document.querySelectorAll(".container");
 
-    function updatePoints() {
-        let totalPoints = 0;
-        let allSelected = true;
+    containers.forEach(container => {
+        const radios = container.querySelectorAll("input[type='radio']");
+        const pointsDisplay = container.querySelector(".points");
+        const banner = container.querySelector(".banner");
 
-        for (let i = 0; i <= 9; i++) {
-            const selectedRadio = document.querySelector(`input[name='${i}']:checked`);
-            if (selectedRadio) {
-                totalPoints += parseInt(selectedRadio.value, 10);
+        function updatePoints() {
+            let totalPoints = 0;
+
+            let checkedRadioNames = new Set();
+            let uncheckedRadioNames = new Set();
+
+            Array.from(radios).forEach(radio => {
+                if (radio.checked) {
+                    totalPoints += parseInt(radio.value, 10);
+                    checkedRadioNames.add(radio.name);
+                } else {
+                    uncheckedRadioNames.add(radio.name);
+                }
+            });
+
+            console.log(checkedRadioNames);
+            console.log(uncheckedRadioNames);
+
+            let allSelected = checkedRadioNames.size == uncheckedRadioNames.size;
+
+
+            pointsDisplay.textContent = totalPoints;
+
+            if (allSelected) {
+                banner.classList.add("finish");
             } else {
-                allSelected = false;
+                banner.classList.remove("finish");
             }
         }
 
-        pointsDisplay.textContent = totalPoints;
+        radios.forEach(radio => {
+            radio.addEventListener("change", updatePoints);
+        });
 
-        if (allSelected) {
-            banner.classList.add("finish");
-        } else {
-            banner.classList.remove("finish");
-        }
-    }
-
-    radios.forEach(radio => {
-        radio.addEventListener("change", updatePoints);
+        updatePoints();
     });
 });
