@@ -32,6 +32,10 @@ body {
     background-color: #4CAF50ee;
 }
 
+.banner.finish .warning {
+    display: none;
+}
+
 h1 {
     font-size: 28px;
     color: #ff7f27;
