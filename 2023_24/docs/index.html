@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>FLL Punkterechner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>FORSCHUNG</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th><b>Ausbaufähig<br>1</b></th>
+                    <th><b>Gut<br>2</b></th>
+                    <th><b>Sehr Gut<br>3</b></th>
+                    <th><b>Herausragend<br>4</b><br>Wie hat das Team die Erwartungen übertroffen?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4"><b>Benennen –</b> Das Team hat ein Problem klar definiert und dazu gut recherchiert.</td>
+                </tr>
+                <tr>
+                    <td><label for="research-0-1"><div><div><input type="radio" id="research-0-1" name="research-0" value="1"></div><span>Problem nicht klar definiert</span></div></label></td>
+                    <td><label for="research-0-2"><div><div><input type="radio" id="research-0-2" name="research-0" value="2"></div><span>Problem teilweise klar definiert</span></div></label></td>
+                    <td><label for="research-0-3"><div><div><input type="radio" id="research-0-3" name="research-0" value="3"></div><span>Klare Definition des Problems</span></div></label></td>
+                    <td><label for="research-0-4"><div><div><input type="radio" id="research-0-4" name="research-0" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="research-1-1"><div><div><input type="radio" id="research-1-1" name="research-1" value="1"></div><span>Wenig Forschung</span></div></label></td>
+                    <td><label for="research-1-2"><div><div><input type="radio" id="research-1-2" name="research-1" value="2"></div><span>Forschung von mehr als einer Quelle</span></div></label></td>
+                    <td><label for="research-1-3"><div><div><input type="radio" id="research-1-3" name="research-1" value="3"></div><span>Klare, detaillierte Forschung von vielen untersch. Quellen</span></div></label></td>
+                    <td><label for="research-1-4"><div><div><input type="radio" id="research-1-4" name="research-1" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Entwicklen –</b> Das Team hat selbständig eine innovative Idee ausgewählt und diese strategisch erarbeitet sowie weiterentwickelt.</td>
+                </tr>
+                <tr>
+                    <td><label for="research-2-1"><div><div><input type="radio" id="research-2-1" name="research-2" value="1"></div><span>Wenig Hinweise, dass das gesamte Team an der Ideenauswahl beteiligt war</span></div></label></td>
+                    <td><label for="research-2-2"><div><div><input type="radio" id="research-2-2" name="research-2" value="2"></div><span>Einige Hinweise, dass das gesamte Team an der Ideenauswahl beteiligt war</span></div></label></td>
+                    <td><label for="research-2-3"><div><div><input type="radio" id="research-2-3" name="research-2" value="3"></div><span>Klare Hinweise, dass das gesamte Team an der Ideenauswahl beteiligt war</span></div></label></td>
+                    <td><label for="research-2-4"><div><div><input type="radio" id="research-2-4" name="research-2" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="research-3-1"><div><div><input type="radio" id="research-3-1" name="research-3" value="1"></div><span>Wenig Hinweise auf eine effektive Strategie</span></div></label></td>
+                    <td><label for="research-3-2"><div><div><input type="radio" id="research-3-2" name="research-3" value="2"></div><span>Einige Hinweise auf eine effektive Strategie</span></div></label></td>
+                    <td><label for="research-3-3"><div><div><input type="radio" id="research-3-3" name="research-3" value="3"></div><span>Klare Hinweise auf eine effektive Strategie</span></div></label></td>
+                    <td><label for="research-3-4"><div><div><input type="radio" id="research-3-4" name="research-3" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Erstellen –</b> Das Team hat eine eigene Idee entwickelt oder auf einer bestehenden aufgebaut. Mit einem Prototypmodell oder einer Zeichnung veranschaulicht das Team die Lösung.</td>
+                </tr>
+                <tr>
+                    <td><label for="research-4-1"><div><div><input type="radio" id="research-4-1" name="research-4" value="1"></div><span>Wenig Entwicklung einer innovativen Lösung</span></div></label></td>
+                    <td><label for="research-4-2"><div><div><input type="radio" id="research-4-2" name="research-4" value="2"></div><span>Teilweise Entwicklung einer innovativen Lösung</span></div></label></td>
+                    <td><label for="research-4-3"><div><div><input type="radio" id="research-4-3" name="research-4" value="3"></div><span>Umfangreiche Entwicklung einer innovativen Lösung</span></div></label></td>
+                    <td><label for="research-4-4"><div><div><input type="radio" id="research-4-4" name="research-4" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="research-5-1"><div><div><input type="radio" id="research-5-1" name="research-5" value="1"></div><span>Unklare Prototyp (Modell/Zeichnung), der hilft, die Lösung zu vermitteln</span></div></label></td>
+                    <td><label for="research-5-2"><div><div><input type="radio" id="research-5-2" name="research-5" value="2"></div><span>Einfacher Prototyp (Modell/Zeichnung), der hilft, die Lösung zu vermitteln</span></div></label></td>
+                    <td><label for="research-5-3"><div><div><input type="radio" id="research-5-3" name="research-5" value="3"></div><span>Detaillierter Prototyp (Modell/Zeichnung), der hilft, die Lösung zu vermitteln</span></div></label></td>
+                    <td><label for="research-5-4"><div><div><input type="radio" id="research-5-4" name="research-5" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Iteration –</b> Das Team hat seine Ideen NutzerInnen/ExpertInnen vorgestellt, Feedback gesammelt und Verbesserungen in seine Lösung eingearbeitet.</td>
+                </tr>
+                <tr>
+                    <td><label for="research-6-1"><div><div><input type="radio" id="research-6-1" name="research-6" value="1"></div><span>Lösung wurde kaum gezeigt</span></div></label></td>
+                    <td><label for="research-6-2"><div><div><input type="radio" id="research-6-2" name="research-6" value="2"></div><span>Lösung wurde NutzerInnen ODER ExpertInnen gezeigt</span></div></label></td>
+                    <td><label for="research-6-3"><div><div><input type="radio" id="research-6-3" name="research-6" value="3"></div><span>Lösung wurde NutzerInnen UND ExpertInnen gezeigt</span></div></label></td>
+                    <td><label for="research-6-4"><div><div><input type="radio" id="research-6-4" name="research-6" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="research-7-1"><div><div><input type="radio" id="research-7-1" name="research-7" value="1"></div><span>Kaum Hinweise auf Verbesserungen der Lösung</span></div></label></td>
+                    <td><label for="research-7-2"><div><div><input type="radio" id="research-7-2" name="research-7" value="2"></div><span>Einige Hinweise auf Verbesserungen der Lösung</span></div></label></td>
+                    <td><label for="research-7-3"><div><div><input type="radio" id="research-7-3" name="research-7" value="3"></div><span>Viele Hinweise auf Verbesserungen der Lösung</span></div></label></td>
+                    <td><label for="research-7-4"><div><div><input type="radio" id="research-7-4" name="research-7" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Mitteilen –</b> Das Team stellte in einer kreativen und überzeugenden Präsentation seine aktuelle Lösung und deren Auswirkungen auf die betroffenen Personen vor.</td>
+                </tr>
+                <tr>
+                    <td><label for="research-8-1"><div><div><input type="radio" id="research-8-1" name="research-8" value="1"></div><span>Präsentation wenig ansprechend</span></div></label></td>
+                    <td><label for="research-8-2"><div><div><input type="radio" id="research-8-2" name="research-8" value="2"></div><span>Präsentation teilweise ansprechend</span></div></label></td>
+                    <td><label for="research-8-3"><div><div><input type="radio" id="research-8-3" name="research-8" value="3"></div><span>Präsentation ansprechend</span></div></label></td>
+                    <td><label for="research-8-4"><div><div><input type="radio" id="research-8-4" name="research-8" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="research-9-1"><div><div><input type="radio" id="research-9-1" name="research-9" value="1"></div><span>Lösung und möglicher Effekt auf andere unklar</span></div></label></td>
+                    <td><label for="research-9-2"><div><div><input type="radio" id="research-9-2" name="research-9" value="2"></div><span>Lösung und möglicher Effekt auf andere teilweise klar</span></div></label></td>
+                    <td><label for="research-9-3"><div><div><input type="radio" id="research-9-3" name="research-9" value="3"></div><span>Lösung und möglicher Effekt auf andere völlig klar</span></div></label></td>
+                    <td><label for="research-9-4"><div><div><input type="radio" id="research-9-4" name="research-9" value="4"></div><span></span></div></label></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="banner">
+            <h3 class="warning">Bitte füllen Sie alle Felder aus!</h3>
+            <h3>Punkte Forschung: <span class="points"></span></h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>ROBOTDESIGN</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th><b>Ausbaufähig<br>1</b></th>
+                    <th><b>Gut<br>2</b></th>
+                    <th><b>Sehr Gut<br>3</b></th>
+                    <th><b>Herausragend<br>4</b><br>Wie hat das Team die Erwartungen übertroffen?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4"><b>Benennen –</b> Das Team hat eine klar definierte Strategie und ausgelotet, welche Konstruktions- und Programmierfähigkeiten es benötigt.</td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-0-1"><div><div><input type="radio" id="robotdesign-0-1" name="robotdesign-0" value="1"></div><span>Unklare Strategie</span></div></label></td>
+                    <td><label for="robotdesign-0-2"><div><div><input type="radio" id="robotdesign-0-2" name="robotdesign-0" value="2"></div><span>Teilweise klare Strategie</span></div></label></td>
+                    <td><label for="robotdesign-0-3"><div><div><input type="radio" id="robotdesign-0-3" name="robotdesign-0" value="3"></div><span>Klare Strategie</span></div></label></td>
+                    <td><label for="robotdesign-0-4"><div><div><input type="radio" id="robotdesign-0-4" name="robotdesign-0" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-1-1"><div><div><input type="radio" id="robotdesign-1-1" name="robotdesign-1" value="1"></div><span>Kaum Hinweise auf Konstruktions- und Programmierfähigkeiten bei allen</span></div></label></td>
+                    <td><label for="robotdesign-1-2"><div><div><input type="radio" id="robotdesign-1-2" name="robotdesign-1" value="2"></div><span>Nicht durchweg Hinweise auf Konstruktions- und Programmierfähigkeiten bei allen</span></div></label></td>
+                    <td><label for="robotdesign-1-3"><div><div><input type="radio" id="robotdesign-1-3" name="robotdesign-1" value="3"></div><span>Durchweg Hinweise auf Konstruktions- und Programmierfähigkeiten bei allen</span></div></label></td>
+                    <td><label for="robotdesign-1-4"><div><div><input type="radio" id="robotdesign-1-4" name="robotdesign-1" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Entwicklen –</b> Das Team hat innovative Entwürfe und einen klaren Plan erstellt und hat sich bei Bedarf Rat geholt.</td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-2-1"><div><div><input type="radio" id="robotdesign-2-1" name="robotdesign-2" value="1"></div><span>Kaum Hinweise auf einen effektiven Plan</span></div></label></td>
+                    <td><label for="robotdesign-2-2"><div><div><input type="radio" id="robotdesign-2-2" name="robotdesign-2" value="2"></div><span>Einige Hinweise auf einen effektiven Plan</span></div></label></td>
+                    <td><label for="robotdesign-2-3"><div><div><input type="radio" id="robotdesign-2-3" name="robotdesign-2" value="3"></div><span>Klare Hinweise auf einen effektiven Plan</span></div></label></td>
+                    <td><label for="robotdesign-2-4"><div><div><input type="radio" id="robotdesign-2-4" name="robotdesign-2" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-3-1"><div><div><input type="radio" id="robotdesign-3-1" name="robotdesign-3" value="1"></div><span>Kaum Erläuterungen der Merkmale von Roboter und Code</span></div></label></td>
+                    <td><label for="robotdesign-3-2"><div><div><input type="radio" id="robotdesign-3-2" name="robotdesign-3" value="2"></div><span>Einige Erläuterungen der Eigenschaften von Roboter und Code</span></div></label></td>
+                    <td><label for="robotdesign-3-3"><div><div><input type="radio" id="robotdesign-3-3" name="robotdesign-3" value="3"></div><span>Klare Erläuterungen der Eigenschaften von Roboter und Code</span></div></label></td>
+                    <td><label for="robotdesign-3-4"><div><div><input type="radio" id="robotdesign-3-4" name="robotdesign-3" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Erstellen –</b> Das Team hat eine effektive Roboter- und Programmierlösung entwickelt, die zur Strategie passt.</td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-4-1"><div><div><input type="radio" id="robotdesign-4-1" name="robotdesign-4" value="1"></div><span>Kaum Erklärungen zum Roboter, seinen Anbauten oder Funktionalität der Sensoren</span></div></label></td>
+                    <td><label for="robotdesign-4-2"><div><div><input type="radio" id="robotdesign-4-2" name="robotdesign-4" value="2"></div><span>Einfache Erklärungen zum Roboter, seinen Anbauten oder Funktionalität der Sensoren</span></div></label></td>
+                    <td><label for="robotdesign-4-3"><div><div><input type="radio" id="robotdesign-4-3" name="robotdesign-4" value="3"></div><span>Genaue Erklärungen zum Roboter, seinen Anbauten oder Funktionalität der Sensoren</span></div></label></td>
+                    <td><label for="robotdesign-4-4"><div><div><input type="radio" id="robotdesign-4-4" name="robotdesign-4" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-5-1"><div><div><input type="radio" id="robotdesign-5-1" name="robotdesign-5" value="1"></div><span>Unklare Erklärung, was der Code beim Roboter bewirkt</span></div></label></td>
+                    <td><label for="robotdesign-5-2"><div><div><input type="radio" id="robotdesign-5-2" name="robotdesign-5" value="2"></div><span>Teilweise klare Erklärung, was der Code beim Roboter bewirkt</span></div></label></td>
+                    <td><label for="robotdesign-5-3"><div><div><input type="radio" id="robotdesign-5-3" name="robotdesign-5" value="3"></div><span>Klare Erklärung, was der Code beim Roboter bewirkt</span></div></label></td>
+                    <td><label for="robotdesign-5-4"><div><div><input type="radio" id="robotdesign-5-4" name="robotdesign-5" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Iteration –</b> Das Team hat mehrfach seinen Roboter und den Code getestet, um verbesserungswürdige Bereiche zu erkennen und hat die Ergebnisse in seine aktuelle Lösung integriert.</td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-6-1"><div><div><input type="radio" id="robotdesign-6-1" name="robotdesign-6" value="1"></div><span>Kaum Hinweise, dass Roboter und Code getestet wurden</span></div></label></td>
+                    <td><label for="robotdesign-6-2"><div><div><input type="radio" id="robotdesign-6-2" name="robotdesign-6" value="2"></div><span>Einige Hinweise, dass Roboter und Code getestet wurden</span></div></label></td>
+                    <td><label for="robotdesign-6-3"><div><div><input type="radio" id="robotdesign-6-3" name="robotdesign-6" value="3"></div><span>Klare Hinweise, dass Roboter und Code getestet wurden</span></div></label></td>
+                    <td><label for="robotdesign-6-4"><div><div><input type="radio" id="robotdesign-6-4" name="robotdesign-6" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-7-1"><div><div><input type="radio" id="robotdesign-7-1" name="robotdesign-7" value="1"></div><span>Kaum Hinweise, dass Roboter und Code verbessert wurden</span></div></label></td>
+                    <td><label for="robotdesign-7-2"><div><div><input type="radio" id="robotdesign-7-2" name="robotdesign-7" value="2"></div><span>Einige Hinweise, dass Roboter und Code verbessert wurden</span></div></label></td>
+                    <td><label for="robotdesign-7-3"><div><div><input type="radio" id="robotdesign-7-3" name="robotdesign-7" value="3"></div><span>Klare Hinweise, dass Roboter und Code verbessert wurden</span></div></label></td>
+                    <td><label for="robotdesign-7-4"><div><div><input type="radio" id="robotdesign-7-4" name="robotdesign-7" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Mitteilen –</b> Die Erklärung des Teams zum Roboterdesign-Prozess ist effektiv und zeigt, wie alle Teammitglieder einbezogen wurden.</td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-8-1"><div><div><input type="radio" id="robotdesign-8-1" name="robotdesign-8" value="1"></div><span>Unklare Erläuterung des Roboterdesign-Prozesses</span></div></label></td>
+                    <td><label for="robotdesign-8-2"><div><div><input type="radio" id="robotdesign-8-2" name="robotdesign-8" value="2"></div><span>Teilweise klare Erläuterung des Roboterdesign- Prozesses</span></div></label></td>
+                    <td><label for="robotdesign-8-3"><div><div><input type="radio" id="robotdesign-8-3" name="robotdesign-8" value="3"></div><span>Klare Erläuterung des Roboterdesign-Prozesses</span></div></label></td>
+                    <td><label for="robotdesign-8-4"><div><div><input type="radio" id="robotdesign-8-4" name="robotdesign-8" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td><label for="robotdesign-9-1"><div><div><input type="radio" id="robotdesign-9-1" name="robotdesign-9" value="1"></div><span>Kaum Hinweise, dass alle Teammitglieder involviert sind</span></div></label></td>
+                    <td><label for="robotdesign-9-2"><div><div><input type="radio" id="robotdesign-9-2" name="robotdesign-9" value="2"></div><span>Einige Hinweise, dass alle Teammitglieder involviert sind</span></div></label></td>
+                    <td><label for="robotdesign-9-3"><div><div><input type="radio" id="robotdesign-9-3" name="robotdesign-9" value="3"></div><span>Klare Hinweise, dass alle Teammitglieder involviert sind</span></div></label></td>
+                    <td><label for="robotdesign-9-4"><div><div><input type="radio" id="robotdesign-9-4" name="robotdesign-9" value="4"></div><span></span></div></label></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="banner">
+            <h3 class="warning">Bitte füllen Sie alle Felder aus!</h3>
+            <h3>Punkte Robotdesign: <span class="points"></span></h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>GRUNDWERTE</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th><b>Ausbaufähig<br>1</b><br>Kaum im gesamten Team beobachtet.</th>
+                    <th><b>Gut<br>2</b><br>Nicht durchweg im gesamten Team beobachtet.</th>
+                    <th><b>Sehr Gut<br>3</b><br>Durchweg im gesamten Team beobachtet.</th>
+                    <th><b>Herausragend<br>4</b><br>Wie hat das Team die Erwartungen übertroffen?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4"><b>Entdeckung –</b> Das Team hat neue Talente und Ideen entdeckt.</td>
+                </tr>
+                <tr>
+                    <td><label for="core-values-0-1"><div><div><input type="radio" id="core-values-0-1" name="core-values-0" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-0-2"><div><div><input type="radio" id="core-values-0-2" name="core-values-0" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-0-3"><div><div><input type="radio" id="core-values-0-3" name="core-values-0" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-0-4"><div><div><input type="radio" id="core-values-0-4" name="core-values-0" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Innovation –</b> Das Team war kreativ und ausdauernd bei der Lösung von Problemen.</td>
+                </tr>
+                <tr>
+                    <td><label for="core-values-1-1"><div><div><input type="radio" id="core-values-1-1" name="core-values-1" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-1-2"><div><div><input type="radio" id="core-values-1-2" name="core-values-1" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-1-3"><div><div><input type="radio" id="core-values-1-3" name="core-values-1" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-1-4"><div><div><input type="radio" id="core-values-1-4" name="core-values-1" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Wirkung –</b> Das Team hat das Gelernte angewendet, um seine Welt zu verbessern.</td>
+                </tr>
+                <tr>
+                    <td><label for="core-values-2-1"><div><div><input type="radio" id="core-values-2-1" name="core-values-2" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-2-2"><div><div><input type="radio" id="core-values-2-2" name="core-values-2" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-2-3"><div><div><input type="radio" id="core-values-2-3" name="core-values-2" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-2-4"><div><div><input type="radio" id="core-values-2-4" name="core-values-2" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Inklusion –</b> Das Team verhält sich respektvoll und akzeptiert seine Unterschiede.</td>
+                </tr>
+                <tr>
+                    <td><label for="core-values-3-1"><div><div><input type="radio" id="core-values-3-1" name="core-values-3" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-3-2"><div><div><input type="radio" id="core-values-3-2" name="core-values-3" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-3-3"><div><div><input type="radio" id="core-values-3-3" name="core-values-3" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-3-4"><div><div><input type="radio" id="core-values-3-4" name="core-values-3" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Teamwork –</b> Das Team zeigte klar, dass sie gut zusammenarbeiten.</td>
+                </tr>            
+                <tr>
+                    <td><label for="core-values-4-1"><div><div><input type="radio" id="core-values-4-1" name="core-values-4" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-4-2"><div><div><input type="radio" id="core-values-4-2" name="core-values-4" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-4-3"><div><div><input type="radio" id="core-values-4-3" name="core-values-4" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-4-4"><div><div><input type="radio" id="core-values-4-4" name="core-values-4" value="4"></div><span></span></div></label></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><b>Spaß –</b> Das Team hat eindeutig Spaß miteinander und feiert seine Erfolge - einzeln und als Gruppe.</td>
+                </tr> 
+                <tr>
+                    <td><label for="core-values-5-1"><div><div><input type="radio" id="core-values-5-1" name="core-values-5" value="1"></div><span></span></div></label></td>
+                    <td><label for="core-values-5-2"><div><div><input type="radio" id="core-values-5-2" name="core-values-5" value="2"></div><span></span></div></label></td>
+                    <td><label for="core-values-5-3"><div><div><input type="radio" id="core-values-5-3" name="core-values-5" value="3"></div><span></span></div></label></td>
+                    <td><label for="core-values-5-4"><div><div><input type="radio" id="core-values-5-4" name="core-values-5" value="4"></div><span></span></div></label></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="banner">
+            <h3 class="warning">Bitte füllen Sie alle Felder aus!</h3>
+            <h3>Punkte Grundwerte: <span class="points"></span></h3>
+        </div>
+    </div>
+</body>
+</html>
