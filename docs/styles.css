@@ -27,27 +27,25 @@ body {
     transition: color 0.3s;
 }
 
-.research .language_select a:hover {
+.language_select a:hover {
     color: #0065b7;
 }
 
-.research .language_select a.selected {
+.language_select a.selected {
     color: #0065b7;
 }
 
-.robotdesign .language_select a:hover {
-    color: #00a54f;
-}
-
-.robotdesign .language_select a.selected {
-    color: #00a54f;
+.options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
-    padding: 50px 80px 20px 80px;
+    padding: 10px 80px 20px 80px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -77,6 +75,50 @@ h1 {
     font-size: 50px;
     margin-bottom: 20px;
     font-family: 'Tobi Pro', sans-serif;
+    margin-right: 15px;
+}
+
+.button-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 0px;
+}
+
+button {
+    background: none;
+    vertical-align: middle;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.copy {
+    color: #0065b7;
+    font-size: 45px !important;
+    cursor: pointer;
+}
+
+.copy-success {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(10px, -50%);
+    white-space: nowrap;
+    background-color: #04ff7dde;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, top 0.3s, visibility 0.3s;
+}
+
+.copy-success.show {
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+}
+
+.header h1 {
+    color: #f34a3a
 }
 
 .research h1 {

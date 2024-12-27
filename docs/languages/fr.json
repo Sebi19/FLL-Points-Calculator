@@ -1,5 +1,9 @@
 {
+  "title": "Calculateur de Points FLL",
   "warning": "Veuillez remplir tous les champs !",
+  "copy-tooltip": "Copier dans le presse-papiers",
+  "copy-success": "Copié dans le presse-papiers !",
+  "clear-tooltip": "Tout supprimer",
   "eval_beginning": "Débutant",
   "eval_developing": "Développé",
   "eval_accomplished": "Accompli",

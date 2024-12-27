@@ -1,5 +1,9 @@
 {
+  "title": "FLL Punkterechner",
   "warning": "Bitte füllen Sie alle Felder aus!",
+  "copy-tooltip": "In Zwischenablage kopieren",
+  "copy-success": "In Zwischenablage kopiert!",
+  "clear-tooltip": "Alles löschen",
   "eval_beginning": "Ausbaufähig",
   "eval_developing": "Gut",
   "eval_accomplished": "Sehr gut",

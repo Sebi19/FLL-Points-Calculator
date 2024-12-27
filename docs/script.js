@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const containers = document.querySelectorAll(".container");
+    
+    const containers = document.querySelectorAll(".category");
 
     containers.forEach(container => {
 
-        console.info(container.className);
         const isCoreValues = container.className.includes("corevalues");
         
         let checkboxes;
@@ -31,9 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            console.log(checkedcheckboxNames);
-            console.log(uncheckedcheckboxNames);
-
             let allSelected = checkedcheckboxNames.size == uncheckedcheckboxNames.size;
 
 
@@ -59,13 +56,33 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         });
                     }
-                    console.info("Hello");
                     updatePoints();
                 });
             });
         });
 
-        updatePoints();
+        window.addEventListener("pageshow", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dataValue = urlParams.get('data');
+            if(dataValue) {
+                updateForm(dataValue);
+            }    
+
+            document.querySelectorAll('tr').forEach(row => {
+                const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+                
+                if (Array.from(checkboxes).filter(checkbox => checkbox.checked).length > 1) {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                }
+                updatePoints();
+            });
+        });
+
+        document.addEventListener("recalculate", () => {
+            updatePoints();
+        });
     });
 });
 
@@ -73,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const language = localStorage.getItem('language') || 'de';
 
 function setLanguage(lang) {
+    console.log('Setting language to', lang);
     fetchLanguageData(lang).then(data => {
         updateContent(data);
         setLanguagePreference(lang);
@@ -86,6 +104,10 @@ function updateContent(langData) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         element.innerHTML = langData[key];
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        element.title = langData[key];
     });
 }
 
@@ -106,15 +128,55 @@ async function fetchLanguageData(lang) {
     return response.json();
 }
 
-window.addEventListener("pageshow", (event) => {
-    document.querySelectorAll('tr').forEach(row => {
-        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+
+function copyFormUrl() {
+    const data = [];
+    const url = new URL(window.location.href);
+
+    document.querySelectorAll('tr.checkbox-group').forEach(row => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]:checked');
         
-        if (Array.from(checkboxes).filter(checkbox => checkbox.checked).length > 1) {
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
+        if (checkboxes.length == 1) {
+            data.push(checkboxes[0].value);
+        } else {
+            data.push('0');
         }
-        updatePoints();
     });
-});
+
+    url.searchParams.set('data', data.join(''));
+    const updatedUrl = url.toString();
+    navigator.clipboard.writeText(updatedUrl)
+        .then(() => {
+          console.log(`URL copied to clipboard: ${updatedUrl}`);
+          document.querySelector('.copy-success').classList.add('show');
+            setTimeout(() => {
+                document.querySelector('.copy-success').classList.remove('show');
+            }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy URL:', err);
+        });
+}
+
+function updateForm(data) {
+    const dataArray = data.split('');
+    document.querySelectorAll('tr.checkbox-group').forEach((row, index) => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = dataArray[index] == checkbox.value;
+        });
+    });
+    const url = new URL(window.location.href);
+    url.search = '';
+    history.replaceState(null, '', url.toString());
+}
+
+function clearForm() {
+    document.querySelectorAll('tr.checkbox-group').forEach(row => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    });
+    document.dispatchEvent(new Event('recalculate'));
+}
