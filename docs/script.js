@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
         console.info(container.className);
         const isCoreValues = container.className.includes("corevalues");
         
-        let radios;
+        let checkboxes;
         if(isCoreValues) {
-            radios = document.querySelectorAll(".teamwork input[type='radio']");
+            checkboxes = document.querySelectorAll(".teamwork input[type='checkbox']");
         } else {
-            radios = container.querySelectorAll("input[type='radio']");
+            checkboxes = container.querySelectorAll("input[type='checkbox']");
         }
         
         const pointsDisplay = container.querySelector(".points");
@@ -19,22 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
         function updatePoints() {
             let totalPoints = 0;
 
-            let checkedRadioNames = new Set();
-            let uncheckedRadioNames = new Set();
+            let checkedcheckboxNames = new Set();
+            let uncheckedcheckboxNames = new Set();
 
-            Array.from(radios).forEach(radio => {
-                if (radio.checked) {
-                    totalPoints += parseInt(radio.value, 10);
-                    checkedRadioNames.add(radio.name);
+            Array.from(checkboxes).forEach(checkbox => {
+                if (checkbox.checked) {
+                    totalPoints += parseInt(checkbox.value, 10);
+                    checkedcheckboxNames.add(checkbox.name);
                 } else {
-                    uncheckedRadioNames.add(radio.name);
+                    uncheckedcheckboxNames.add(checkbox.name);
                 }
             });
 
-            console.log(checkedRadioNames);
-            console.log(uncheckedRadioNames);
+            console.log(checkedcheckboxNames);
+            console.log(uncheckedcheckboxNames);
 
-            let allSelected = checkedRadioNames.size == uncheckedRadioNames.size;
+            let allSelected = checkedcheckboxNames.size == uncheckedcheckboxNames.size;
 
 
             pointsDisplay.textContent = totalPoints;
@@ -46,8 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        radios.forEach(radio => {
-            radio.addEventListener("change", updatePoints);
+        document.querySelectorAll('tr').forEach(row => {
+            const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    // If the clicked checkbox is already checked, uncheck it
+                    if (checkbox.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb !== checkbox) {
+                                cb.checked = false; // Uncheck others
+                            }
+                        });
+                    }
+                    console.info("Hello");
+                    updatePoints();
+                });
+            });
         });
 
         updatePoints();
@@ -90,3 +105,16 @@ async function fetchLanguageData(lang) {
     const response = await fetch(`languages/${lang}.json`);
     return response.json();
 }
+
+window.addEventListener("pageshow", (event) => {
+    document.querySelectorAll('tr').forEach(row => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        
+        if (Array.from(checkboxes).filter(checkbox => checkbox.checked).length > 1) {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+        updatePoints();
+    });
+});
