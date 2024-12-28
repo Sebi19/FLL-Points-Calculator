@@ -21,6 +21,11 @@
                 <a href="#" onclick="setLanguage('fr')" data-lang="fr">FR</a>
             </div>
             <div class="button-container">
+                <button onclick="print()" data-i18n-title="print-tooltip">
+                    <span class="material-symbols-outlined">print</span>
+                </button>
+            </div>
+            <div class="button-container">
                 <button onclick="clearForm()" data-i18n-title="clear-tooltip">
                     <span class="material-symbols-outlined">undo</span>
                 </button>
@@ -29,11 +34,6 @@
                 <span class="copy-success" data-i18n="copy-success"></span>
                 <button onclick="copyFormUrl(this)" data-i18n-title="copy-tooltip">
                     <span class="material-symbols-outlined">share</span>
-                </button>
-            </div>
-            <div class="button-container">
-                <button onclick="print()" data-i18n-title="print-tooltip">
-                    <span class="material-symbols-outlined">print</span>
                 </button>
             </div>
         </div>
@@ -268,12 +268,12 @@
         </div>
 
         <div class="button-container">
+            <button onclick="print()" data-i18n-title="print-tooltip">
+                <span class="material-symbols-outlined">print</span>
+            </button>
             <span class="copy-success" data-i18n="copy-success"></span>
             <button onclick="copyFormUrl(this)" data-i18n-title="copy-tooltip">
                 <span class="material-symbols-outlined copy">share</span>
-            </button>
-            <button onclick="print()" data-i18n-title="print-tooltip">
-                <span class="material-symbols-outlined">print</span>
             </button>
             </div>
         </div>
