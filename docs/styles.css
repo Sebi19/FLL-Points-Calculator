@@ -133,6 +133,10 @@ button {
     color: #ff7f27;
 }
 
+.summary h1 {
+    color: #0065b7;
+}
+
 table {
     width: 100%;
     border-collapse: separate;
@@ -269,7 +273,7 @@ input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
-.teamwork input[type="checkbox"] {
+.corevalues input[type="checkbox"] {
     border-color: #ff7f27;
     border-width: 3px;
     border-radius: 50%;
@@ -304,6 +308,14 @@ label > div {
     column-gap: 10px;
     box-sizing: border-box;
     user-select: none;
+}
+
+.summary-points {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 

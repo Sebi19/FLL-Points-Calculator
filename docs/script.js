@@ -1,88 +1,88 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
+function updatePoints() {
     const containers = document.querySelectorAll(".category");
+    const summaryPoints = document.querySelectorAll(".summary-points .points");
 
     containers.forEach(container => {
-
-        const isCoreValues = container.className.includes("corevalues");
+        category = container.getAttribute("data-category");
         
         let checkboxes;
-        if(isCoreValues) {
-            checkboxes = document.querySelectorAll(".teamwork input[type='checkbox']");
+        if(category == "corevalues") {
+            checkboxes = document.querySelectorAll(".corevalues input[type='checkbox']");
         } else {
             checkboxes = container.querySelectorAll("input[type='checkbox']");
         }
         
         const pointsDisplay = container.querySelector(".points");
         const banner = container.querySelector(".banner");
-
-        function updatePoints() {
-            let totalPoints = 0;
-
-            let checkedcheckboxNames = new Set();
-            let uncheckedcheckboxNames = new Set();
-
-            Array.from(checkboxes).forEach(checkbox => {
-                if (checkbox.checked) {
-                    totalPoints += parseInt(checkbox.value, 10);
-                    checkedcheckboxNames.add(checkbox.name);
-                } else {
-                    uncheckedcheckboxNames.add(checkbox.name);
-                }
-            });
-
-            let allSelected = checkedcheckboxNames.size == uncheckedcheckboxNames.size;
+        const summaryDisplay = Array.from(summaryPoints).filter(summary => summary.getAttribute("data-category") == category)[0];
 
 
-            pointsDisplay.textContent = totalPoints;
+        let totalPoints = 0;
 
-            if (allSelected) {
-                banner.classList.add("finish");
+        let checkedcheckboxNames = new Set();
+        let uncheckedcheckboxNames = new Set();
+
+        Array.from(checkboxes).forEach(checkbox => {
+            if (checkbox.checked) {
+                totalPoints += parseInt(checkbox.value, 10);
+                checkedcheckboxNames.add(checkbox.name);
             } else {
-                banner.classList.remove("finish");
+                uncheckedcheckboxNames.add(checkbox.name);
             }
-        }
-
-        document.querySelectorAll('tr').forEach(row => {
-            const checkboxes = row.querySelectorAll('input[type="checkbox"]');
-            
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    // If the clicked checkbox is already checked, uncheck it
-                    if (checkbox.checked) {
-                        checkboxes.forEach(cb => {
-                            if (cb !== checkbox) {
-                                cb.checked = false; // Uncheck others
-                            }
-                        });
-                    }
-                    updatePoints();
-                });
-            });
         });
 
-        window.addEventListener("pageshow", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const dataValue = urlParams.get('data');
-            if(dataValue) {
-                updateForm(dataValue);
-            }    
+        let allSelected = checkedcheckboxNames.size == uncheckedcheckboxNames.size;
 
-            document.querySelectorAll('tr').forEach(row => {
-                const checkboxes = row.querySelectorAll('input[type="checkbox"]');
-                
-                if (Array.from(checkboxes).filter(checkbox => checkbox.checked).length > 1) {
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
+
+        pointsDisplay.textContent = totalPoints;
+
+        if (allSelected) {
+            banner.classList.add("finish");
+            summaryDisplay.textContent = totalPoints;
+        } else {
+            banner.classList.remove("finish");
+            summaryDisplay.textContent = "-";
+        }
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('tr').forEach(row => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                // If the clicked checkbox is already checked, uncheck it
+                if (checkbox.checked) {
+                    checkboxes.forEach(cb => {
+                        if (cb !== checkbox) {
+                            cb.checked = false; // Uncheck others
+                        }
                     });
                 }
                 updatePoints();
             });
         });
+    });
+});
 
-        document.addEventListener("recalculate", () => {
-            updatePoints();
-        });
+ window.addEventListener("pageshow", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const dataValue = urlParams.get('data');
+    if(dataValue) {
+        updateForm(dataValue);
+    }    
+
+    document.querySelectorAll('tr').forEach(row => {
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        
+        if (Array.from(checkboxes).filter(checkbox => checkbox.checked).length > 1) {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+        updatePoints();
     });
 });
 
@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const language = localStorage.getItem('language') || 'de';
 
 function setLanguage(lang) {
-    console.log('Setting language to', lang);
     fetchLanguageData(lang).then(data => {
         updateContent(data);
         setLanguagePreference(lang);
@@ -129,7 +128,7 @@ async function fetchLanguageData(lang) {
 }
 
 
-function copyFormUrl() {
+function copyFormUrl(button) {
     const data = [];
     const url = new URL(window.location.href);
 
@@ -143,14 +142,15 @@ function copyFormUrl() {
         }
     });
 
-    url.searchParams.set('data', data.join(''));
+    dataString = data.join('').replace(/0+$/, '');
+    url.searchParams.set('data', dataString);
     const updatedUrl = url.toString();
     navigator.clipboard.writeText(updatedUrl)
         .then(() => {
-          console.log(`URL copied to clipboard: ${updatedUrl}`);
-          document.querySelector('.copy-success').classList.add('show');
+            let copySuccess = button.parentElement.querySelector('.copy-success');
+            copySuccess.classList.add('show');
             setTimeout(() => {
-                document.querySelector('.copy-success').classList.remove('show');
+                copySuccess.classList.remove('show');
             }, 2000);
         })
         .catch(err => {
@@ -178,5 +178,5 @@ function clearForm() {
             checkbox.checked = false;
         });
     });
-    document.dispatchEvent(new Event('recalculate'));
+    updatePoints();
 }

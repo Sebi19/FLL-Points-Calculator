@@ -92,5 +92,7 @@
   "robotdesign_points": "Points de Conception du robot : ",
 
   "corevalues_title": "Valeurs fondamentales",
-  "corevalues_points": "Points de Valeurs fondamentales : "
+  "corevalues_points": "Points de Valeurs fondamentales : ",
+
+  "summary_title": "Récapitulatif"
 }

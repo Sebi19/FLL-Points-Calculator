@@ -92,5 +92,7 @@
   "robotdesign_points": "Robot Design Points: ",
 
   "corevalues_title": "Core Values",
-  "corevalues_points": "Core Values Points: "
+  "corevalues_points": "Core Values Points: ",
+
+  "summary_title": "Summary"
 }
