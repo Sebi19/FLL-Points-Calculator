@@ -4,6 +4,7 @@
   "copy-tooltip": "Copier dans le presse-papiers",
   "copy-success": "Copié dans le presse-papiers !",
   "clear-tooltip": "Tout supprimer",
+  "print-tooltip": "Imprimez",
   "eval_beginning": "Débutant",
   "eval_developing": "Développé",
   "eval_accomplished": "Accompli",

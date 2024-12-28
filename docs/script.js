@@ -1,6 +1,6 @@
 function updatePoints() {
     const containers = document.querySelectorAll(".category");
-    const summaryPoints = document.querySelectorAll(".summary-points .points");
+    const summaryPoints = document.querySelectorAll(".summary-points");
 
     containers.forEach(container => {
         category = container.getAttribute("data-category");
@@ -14,7 +14,7 @@ function updatePoints() {
         
         const pointsDisplay = container.querySelector(".points");
         const banner = container.querySelector(".banner");
-        const summaryDisplay = Array.from(summaryPoints).filter(summary => summary.getAttribute("data-category") == category)[0];
+        const summaryDisplay = Array.from(summaryPoints).filter(summary => summary.getAttribute("data-category") == category);
 
 
         let totalPoints = 0;
@@ -38,10 +38,10 @@ function updatePoints() {
 
         if (allSelected) {
             banner.classList.add("finish");
-            summaryDisplay.textContent = totalPoints;
+            summaryDisplay.forEach(summary => summary.textContent = totalPoints);
         } else {
             banner.classList.remove("finish");
-            summaryDisplay.textContent = "-";
+            summaryDisplay.forEach(summary => summary.textContent = '-');
         }
     });
 }

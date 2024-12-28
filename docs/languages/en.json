@@ -4,6 +4,7 @@
   "copy-tooltip": "Copy to clipboard",
   "copy-success": "Copied to clipboard!",
   "clear-tooltip": "Delete all",
+  "print-tooltip": "Print",
   "eval_beginning": "Beginning",
   "eval_developing": "Developing",
   "eval_accomplished": "Accomplished",

@@ -4,6 +4,7 @@
   "copy-tooltip": "In Zwischenablage kopieren",
   "copy-success": "In Zwischenablage kopiert!",
   "clear-tooltip": "Alles löschen",
+  "print-tooltip": "Drucken",
   "eval_beginning": "Ausbaufähig",
   "eval_developing": "Gut",
   "eval_accomplished": "Sehr gut",
